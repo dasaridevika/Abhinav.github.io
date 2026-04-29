@@ -72,7 +72,6 @@ body::before {
     margin-top: 25px;
     color: #5a3e2b;
     font-size: 16px;
-    opacity: 0.8;
 }
 
 /* Letter */
@@ -120,34 +119,22 @@ h2 {
     font-size: 18px;
     line-height: 1.9;
     color: #3e2f1c;
-    margin-top: 20px;
 }
 
 .cursor {
     display: inline-block;
     width: 8px;
+    height: 18px;
     background: #3e2f1c;
     animation: blink 1s infinite;
 }
 
 @keyframes blink {
-    50% { background: transparent; }
+    50% { opacity: 0; }
 }
 </style>
 </head>
-<body>
 
-<div class="envelope-container">
-    <div class="envelope" id="envelope">
-        <div class="flap"></div>
-        <div class="seal"></div>
-    </div>
-    <p class="hint">Click the envelope</p>
-</div>
-
-<div class="letter" id="letter">
-    <h2>To Mr.Abhinav</h2>
-    <div id="text"></div><span ></span>
 <body>
 
 <!-- Envelope -->
@@ -156,12 +143,12 @@ h2 {
         <div class="flap"></div>
         <div class="seal"></div>
     </div>
-    <p style="margin-top:20px;">Click to open 💛</p>
+    <p class="hint">Click to open 💛</p>
 </div>
 
 <!-- Letter -->
 <div class="letter" id="letter">
-    <h2>Hello Mr.Abhinav</h2>
+    <h2>Hello Mr. Abhinav</h2>
     <p id="text"></p><span class="cursor"></span>
 </div>
 
@@ -172,24 +159,30 @@ const message = `
 I don’t know how to put this... but I have to.
 
 I’ve always seen you as a true friend. College is ending, and maybe we’ll get busy and drift further. That’s why I want to say sorry if I ever hurt you.
-I regret that one thing that faded us. 
+
+I regret that one thing that faded us.  
 I never wanted it to end like this.
 
 Just remember me as a good friend. Because you were one to me.
 
-Thanks for being you. Thanks for my bday treat — you made my day. You’re one of the best people I know — kind, considerate, genuine, and chill.
+Thanks for being you. Thanks for my bday treat — you made my day.
 
-We may have talked less, but you’re still special to me. If I could go back, I would change onething about our friendship.
+You’re one of the best people I know — kind, considerate, genuine, and chill.
+
+We may have talked less, but you’re still special to me.
+
+If I could go back, I would change one thing about our friendship.
 
 You’ll always be a good part of my life.
 
-Wishing u good luck for ur bright future..
+Wishing you good luck for your bright future.
 
-Stay healthy,Keep Smiling and Take care.
+Stay healthy, keep smiling, and take care.
 
-Hope u achieve what u desired.
+Hope you achieve what you desire.
 
-— Devika';
+— Devika
+`;
 
 let i = 0;
 
