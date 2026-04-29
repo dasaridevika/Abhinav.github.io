@@ -1,1 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You 💛</title>
 
+<style>
+
+body {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    overflow-y: scroll;
+
+    /* Vintage paper background */
+    background: radial-gradient(circle at center, #f5e6c8 0%, #e8d3a5 100%);
+}
+
+/* Hide scrollbar */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Decorative border */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 20px;
+    border: 2px solid #a67c52;
+    pointer-events: none;
+}
+
+/* Envelope Section */
+.envelope-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.envelope {
+    width: 320px;
+    height: 200px;
+    background: #d2a679;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    cursor: pointer;
+}
+
+/* Flap */
+.flap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #c89b6d;
+    clip-path: polygon(0 0, 50% 65%, 100% 0);
+    transform-origin: top;
+    transition: transform 1s ease;
+}
+
+.open .flap {
+    transform: rotateX(180deg);
+}
+
+/* Seal */
+.seal {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background: #6b1f1f;
+    border-radius: 50%;
+    top: 70px;
+    left: 135px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Letter */
+.letter {
+    max-width: 750px;
+    margin: 120px auto;
+    padding: 50px;
+    background: #fdf6e3;
+    border-radius: 10px;
+    display: none;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    position: relative;
+}
+
+/* Paper lines effect */
+.letter::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        transparent,
+        transparent 28px,
+        rgba(0,0,0,0.05) 29px
+    );
+    pointer-events: none;
+}
+
+/* Show animation */
+.show {
+    display: block;
+    animation: fadeUp 2s ease;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(80px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    text-align: center;
+    color: #5a3e2b;
+}
+
+#text {
+    white-space: pre-line;
+    font-size: 18px;
+    line-height: 1.9;
+    color: #3e2f1c;
+    margin-top: 20px;
+}
+
+/* Cursor */
+.cursor {
+    display: inline-block;
+    width: 8px;
+    background: #3e2f1c;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { background: transparent; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Envelope -->
+<div class="envelope-container" onclick="openLetter()">
+    <div class="envelope" id="env">
+        <div class="flap"></div>
+        <div class="seal"></div>
+    </div>
+    <p style="margin-top:20px;">Click to open 💛</p>
+</div>
+
+<!-- Letter -->
+<div class="letter" id="letter">
+    <h2>Dear Ravi 💛</h2>
+    <p id="text"></p><span class="cursor"></span>
+</div>
+
+<script>
+
+const message = `I don’t even know where to start...
+
+All those random conversations,
+all those laughs that made no sense,
+and those moments we didn’t realize were special...
+
+You’ve been a constant in my life,
+in ways I don’t always say, but always feel.
+
+If I could go back,
+I wouldn’t change a single thing.
+
+Thank you for being you.
+
+— Yours`;
+
+let i = 0;
+
+function typeWriter() {
+    if (i < message.length) {
+        document.getElementById("text").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+    }
+}
+
+function openLetter() {
+    document.getElementById("env").classList.add("open");
+
+    setTimeout(() => {
+        document.querySelector(".envelope-container").style.display = "none";
+        document.getElementById("letter").classList.add("show");
+
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: "smooth"
+        });
+
+        typeWriter();
+    }, 1000);
+}
+
+</script>
+
+</body>
+</html>
