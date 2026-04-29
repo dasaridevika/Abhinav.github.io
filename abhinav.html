@@ -146,62 +146,8 @@ h2 {
 </div>
 
 <div class="letter" id="letter">
-    <h2>To My Friend</h2>
-    <div id="text"></div><span class="cursor"></span>
-</div>
-
-<script>
-const envelope = document.getElementById('envelope');
-const letter = document.getElementById('letter');
-const textElement = document.getElementById('text');
-
-// Your message here - using the version you liked
-const message = `I don’t even know how to start this...
-
-But I need to say it. In my own way, I’ve always considered you a true friend.
-
-Once we step out of this college, we’ll both get busy with our own lives. Maybe we won’t talk again like before. And that thought hurts.
-
-I want to apologize if I ever hurt you. I never meant to. I truly did consider you a real friend. I just regret that one thing came between us, and slowly our friendship faded. I never wanted it to end like this.
-
-But let’s leave the past where it is. I just want you to remember me as one of your good friends. Because that’s what you’ve been to me.
-
-Thank you for being my friend. Thank you for my birthday treat — you made that day so special for me. You’re one of the most good, considerate, and chill people I’ve ever known.
-
-Maybe we didn’t talk every day. Maybe we talked less than before. But you still remained someone special to me.
-
-If I could go back, I wouldn’t change a single thing about us.
-
-Thank you for being you. I can’t express it better than this, but you’ll always be a good part of my life.
-
-Take care, always.`;
-
-let i = 0;
-
-envelope.addEventListener('click', () => {
-    envelope.classList.add('open');
-    setTimeout(() => {
-        document.querySelector('.envelope-container').style.display = 'none';
-        letter.classList.add('show');
-        typeWriter();
-    }, 1000);
-});
-
-function typeWriter() {
-    if (i < message.length) {
-        textElement.textContent += message.charAt(i);
-        i++;
-        setTimeout(typeWriter, 40); // Speed of typing. Lower = faster
-    } else {
-        document.querySelector('.cursor').style.display = 'none';
-    }
-}
-</script>
-
-</body>
-</html></style>
-</head>
-
+    <h2>To Mr.Abhinav</h2>
+    <div id="text"></div><span ></span>
 <body>
 
 <!-- Envelope -->
